@@ -3,42 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucky Number Generator</title>
+    <title>Random Text Generator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
             text-align: center;
             margin-top: 50px;
         }
-        #luckyNumber {
-            font-size: 3em;
-            color: #333;
-            margin: 20px 0;
+        input, textarea {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
         }
         button {
             padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: #4CAF50;
+            font-size: 1em;
+            background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #0056b3;
+        }
+        #randomTextBox {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <h1>Your Lucky Number</h1>
-    <div id="luckyNumber">Click the button to generate your lucky number!</div>
-    <button onclick="generateLuckyNumber()">Get Lucky Number</button>
+    <h1>Random Text Generator</h1>
+    <textarea id="textInput" placeholder="Enter multiple lines of text, one per line..."></textarea><br>
+    <button onclick="generateRandomText()">Show Random Text</button>
+    <div id="randomTextBox"></div>
 
     <script>
-        function generateLuckyNumber() {
-            var luckyNumber = Math.floor(Math.random() * 100) + 1; // Generates a number between 1 and 100
-            document.getElementById("luckyNumber").innerHTML = "Your lucky number is: " + luckyNumber;
+        function generateRandomText() {
+            var textInput = document.getElementById("textInput").value;
+            var lines = textInput.split('\n');
+            var randomIndex = Math.floor(Math.random() * lines.length);
+            var randomText = lines[randomIndex].trim();
+            document.getElementById("randomTextBox").innerHTML = randomText ? randomText : "Please enter some text.";
         }
     </script>
 </body>
