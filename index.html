@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Number Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #luckyNumber {
+            font-size: 3em;
+            color: #333;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Lucky Number</h1>
+    <div id="luckyNumber">Click the button to generate your lucky number!</div>
+    <button onclick="generateLuckyNumber()">Get Lucky Number</button>
+
+    <script>
+        function generateLuckyNumber() {
+            var luckyNumber = Math.floor(Math.random() * 100) + 1; // Generates a number between 1 and 100
+            document.getElementById("luckyNumber").innerHTML = "Your lucky number is: " + luckyNumber;
+        }
+    </script>
+</body>
+</html>
